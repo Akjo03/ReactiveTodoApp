@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: TodoApp-Server
+
+  data:
+    mongodb:
+      uri: mongodb://${DB_USER}:${DB_PASS}@${DB_HOST}:27017/todo
+
+server:
+  port: 8080
+
+services:
+  client-url: ${CLIENT_BASE_URL}
+  server-url: ${SERVER_BASE_URL}

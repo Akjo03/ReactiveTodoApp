@@ -13,7 +13,9 @@ server:
     key-store: classpath:certs/localhost.p12
     key-store-type: PKCS12
     key-store-password: changeit
-
+  error:
+    whitelabel:
+      enabled: false
 
 services:
   client-url: ${CLIENT_BASE_URL}

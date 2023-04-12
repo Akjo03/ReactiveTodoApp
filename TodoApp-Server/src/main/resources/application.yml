@@ -10,11 +10,10 @@ server:
   port: 8080
   ssl:
     enabled: true
-    trust-store: classpath:certs/truststore.jks
-    trust-store-password: ${SSL_TRUSTSTORE_KEY}
-    key-store: classpath:certs/todoapp-ssl.p12
+    key-store: classpath:certs/localhost.p12
     key-store-type: PKCS12
     key-store-password: changeit
+
 
 services:
   client-url: ${CLIENT_BASE_URL}

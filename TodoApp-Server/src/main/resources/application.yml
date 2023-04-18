@@ -1,6 +1,8 @@
 spring:
   application:
     name: TodoApp-Server
+  main:
+    web-application-type: reactive
 
   data:
     mongodb:

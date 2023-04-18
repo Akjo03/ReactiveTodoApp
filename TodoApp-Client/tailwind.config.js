@@ -1,6 +1,7 @@
+/** @type {import('tailwindcss').Config} */
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
     "./components/**/*.{js,vue,ts}",
@@ -9,6 +10,7 @@ module.exports = {
     "./plugins/**/*.{js,ts}",
     "./nuxt.config.{js,ts}",
     "./app.vue",
+    'node_modules/@indielayer/ui/**/*',
   ],
   theme: {
     extend: {
@@ -36,9 +38,6 @@ module.exports = {
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
-      colors: {
-
-      }
     },
   },
   plugins: [

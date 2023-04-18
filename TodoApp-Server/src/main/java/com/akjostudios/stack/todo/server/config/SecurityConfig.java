@@ -35,6 +35,7 @@ public class SecurityConfig {
 					return corsConfig;
 				}).and()
 				.exceptionHandling().and()
+				.csrf().disable()
 				.build();
 	}
 }

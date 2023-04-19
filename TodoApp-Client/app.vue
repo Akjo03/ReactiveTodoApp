@@ -1,5 +1,5 @@
 <template>
-    <NConfigProvider :theme="theme">
+    <NConfigProvider :theme="darkTheme">
         <NuxtLayout>
             <NuxtPage />
         </NuxtLayout>
@@ -8,9 +8,5 @@
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useOsTheme, darkTheme, NConfigProvider, NGlobalStyle } from 'naive-ui'
-
-const osTheme = useOsTheme()
-const theme = computed(() => (osTheme.value === 'dark' ? darkTheme : null))
+import { darkTheme, NConfigProvider, NGlobalStyle } from 'naive-ui'
 </script>

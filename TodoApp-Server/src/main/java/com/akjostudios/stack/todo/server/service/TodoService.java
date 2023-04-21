@@ -15,11 +15,8 @@ public class TodoService {
 	private final TodoRepository todoRepository;
 
 	public Mono<TodoEntry> createTodoEntry(TodoEntry todoEntry) {
-		return todoRepository.save(todoEntry)
-				.map(savedTodoEntry -> {
-					savedTodoEntry.setCreatedAt(Instant.now());
-					return savedTodoEntry;
-				});
+		todoEntry.setCreatedAt(Instant.now());
+		return todoRepository.save(todoEntry);
 	}
 
 	public Flux<TodoEntry> getAllTodoEntries() {

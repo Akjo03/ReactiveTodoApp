@@ -1,5 +1,7 @@
 package com.akjostudios.stack.todo.server.error;
 
+import io.github.akjo03.lib.logging.Logger;
+import io.github.akjo03.lib.logging.LoggerManager;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.boot.autoconfigure.web.WebProperties;
 import org.springframework.boot.autoconfigure.web.reactive.error.AbstractErrorWebExceptionHandler;
@@ -21,6 +23,8 @@ import java.util.Map;
 @Component
 @Order(-2)
 public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHandler {
+	private final Logger LOGGER = LoggerManager.getLogger(GlobalErrorWebExceptionHandler.class);
+
 	public GlobalErrorWebExceptionHandler(
 			ObjectProvider<ViewResolver> viewResolvers,
 			ServerCodecConfigurer configurer,
@@ -36,6 +40,7 @@ public class GlobalErrorWebExceptionHandler extends AbstractErrorWebExceptionHan
 
 	@Override
 	protected RouterFunction<ServerResponse> getRoutingFunction(ErrorAttributes errorAttributes) {
+		LOGGER.error("Error caught by GlobalErrorWebExceptionHandler");
 		return RouterFunctions.route(RequestPredicates.all(), this::renderErrorResponse);
 	}
 
